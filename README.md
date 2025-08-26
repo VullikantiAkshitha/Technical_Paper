@@ -1,5 +1,5 @@
-
-Here’s the **same REST architecture explanation in plain `README.md` format**:
+Perfect 👍 You want me to provide the final **Markdown file** so you can directly upload (`README.md`) to GitHub/GitLab.
+Here’s the ready-to-use `README.md` content:
 
 ---
 
@@ -73,10 +73,10 @@ REST uses standard HTTP methods to operate on resources:
 ---
 
 ## REST URI Design Best Practices
-- Use nouns instead of verbs → `/users` not `/getUsers`.
-- Use plural nouns → `/users/123/orders`.
+- Use nouns instead of verbs → `/users` not `/getUsers`.  
+- Use plural nouns → `/users/123/orders`.  
 - Use hierarchical structure for relationships.  
-- Keep URIs simple and consistent.
+- Keep URIs simple and consistent.  
 
 Examples:
 ```
@@ -93,26 +93,26 @@ DELETE /products/15
 
 ## Data Formats in REST
 REST APIs typically use lightweight data formats:
-- JSON (JavaScript Object Notation) → Most popular due to readability and ease of use.
-- XML (Extensible Markup Language) → Used in older systems.
-- YAML/CSV/HTML → Less common, used in specific scenarios.
+- JSON (JavaScript Object Notation) → Most popular due to readability and ease of use.  
+- XML (Extensible Markup Language) → Used in older systems.  
+- YAML/CSV/HTML → Less common, used in specific scenarios.  
 
 ---
 
 ## Advantages of REST
-- Simplicity (uses standard HTTP methods).
-- Scalability (stateless and layered).
-- Flexibility (multiple data formats).
-- Performance (supports caching).
-- Wide adoption and tool support.
+- Simplicity (uses standard HTTP methods).  
+- Scalability (stateless and layered).  
+- Flexibility (multiple data formats).  
+- Performance (supports caching).  
+- Wide adoption and tool support.  
 
 ---
 
 ## Disadvantages of REST
-- Over-fetching or under-fetching of data (client may get more or less than needed).
-- Statelessness means clients must send full information each time.
-- Not ideal for real-time applications (where WebSockets may be better).
-- Handling complex relationships between resources can be challenging.
+- Over-fetching or under-fetching of data (client may get more or less than needed).  
+- Statelessness means clients must send full information each time.  
+- Not ideal for real-time applications (where WebSockets may be better).  
+- Handling complex relationships between resources can be challenging.  
 
 ---
 
@@ -152,9 +152,19 @@ Accept: application/json
 
 REST has become the de-facto standard for designing web APIs because of its simplicity, scalability, and flexibility. By adhering to REST’s architectural constraints — statelessness, uniform interface, and cacheability — developers can build powerful and scalable web services that can easily interact across different platforms and devices.
 
+---
+
+## References
+
+* Roy Fielding Dissertation — [Architectural Styles and the Design of Network-based Software Architectures](https://ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf)
+* MDN Web Docs — [REST Overview](https://developer.mozilla.org/en-US/docs/Glossary/REST)
+* REST API Tutorial — [REST Constraints](https://www.restapitutorial.com/introduction/restconstraints.html)
+* Microsoft Learn — [API Design Best Practices](https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design)
+
 ```
 
 ---
 
-Do you want me to also **add a small diagram (like REST client-server architecture)** using Markdown image reference (`![REST Architecture](rest-architecture.png)`) so that you can attach it later in GitLab?
+✅ Save this as **`README.md`** in your project folder.  
+Would you like me to also give you the **git commands** to create a repo and push this `README.md` to GitHub/GitLab so your submission is complete?
 ```
