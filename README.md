@@ -1,9 +1,4 @@
-Perfect 👍 You want me to provide the final **Markdown file** so you can directly upload (`README.md`) to GitHub/GitLab.
-Here’s the ready-to-use `README.md` content:
 
----
-
-```markdown
 # REST Architecture - Detailed Explanation
 
 ## Introduction
@@ -161,10 +156,3 @@ REST has become the de-facto standard for designing web APIs because of its simp
 * REST API Tutorial — [REST Constraints](https://www.restapitutorial.com/introduction/restconstraints.html)
 * Microsoft Learn — [API Design Best Practices](https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design)
 
-```
-
----
-
-✅ Save this as **`README.md`** in your project folder.  
-Would you like me to also give you the **git commands** to create a repo and push this `README.md` to GitHub/GitLab so your submission is complete?
-```
