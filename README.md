@@ -155,4 +155,3 @@ REST has become the de-facto standard for designing web APIs because of its simp
 * MDN Web Docs — [REST Overview](https://developer.mozilla.org/en-US/docs/Glossary/REST)
 * REST API Tutorial — [REST Constraints](https://www.restapitutorial.com/introduction/restconstraints.html)
 * Microsoft Learn — [API Design Best Practices](https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design)
-

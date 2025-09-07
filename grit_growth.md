@@ -6,7 +6,7 @@ Grit is the combination of passion and perseverance for long-term goals. Success
 ---
 
 **Question 2: Paraphrase (summarize) the video in a few (1 or 2) lines in your own words.**  
-A growth mindset is the belief that intelligence and skills can be developed through dedication, practice, and learning. Unlike a fixed mindset, which assumes abilities are static, a growth mindset encourages improvement and adaptability.  
+A growth mindset is the belief that intelligence and skills can be developed through dedication, practice, and learning. Unlike a fixed mindset, which assumes abilities are static, a growth mindset enc   ourages improvement and adaptability.  
 
 ---
 
