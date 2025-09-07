@@ -1,231 +1,146 @@
 
-# SQL Aggregations – Learning Guide
+# SQL Aggregations on Employee Table
 
 ## Introduction
-SQL aggregation functions are used to perform calculations on multiple rows of a table and return a single summarized result.  
-They are widely used in reporting, analytics, and business intelligence.
-
-This guide explains **10 important aggregation functions** with examples.
+The **Employee** table contains details of employees such as their department, salary, hire date, and city.  
+Aggregation functions in SQL help us summarize this data and extract meaningful insights.  
+This document explains **10 SQL aggregation queries** with examples using the Employee table.
 
 ---
 
-## 1. COUNT()
-- **Description:** Returns the number of rows (or non-NULL values if a column is specified).
-- **Query:**
-  ```sql
-  SELECT COUNT(*) AS total_employees
-  FROM employees;
+##  Employee Table (Sample Data)
+
+| emp_id | name    | department | salary | hire_date  | city      |
+|--------|---------|------------|--------|------------|-----------|
+| 1      | Alice   | HR         | 5000   | 2020-01-15 | Mumbai    |
+| 2      | Bob     | IT         | 7000   | 2019-03-12 | Delhi     |
+| 3      | Charlie | Finance    | 6000   | 2021-07-23 | Bangalore |
+| 4      | David   | IT         | 8000   | 2018-11-05 | Chennai   |
+| 5      | Emma    | HR         | 5500   | 2022-02-18 | Hyderabad |
+| 6      | Frank   | Finance    | 6200   | 2017-09-14 | Pune      |
+| 7      | Grace   | IT         | 9000   | 2020-12-01 | Mumbai    |
+| 8      | Hannah  | Marketing  | 4500   | 2021-05-11 | Kolkata   |
+| 9      | Ian     | Marketing  | 4700   | 2019-08-30 | Delhi     |
+| 10     | Jack    | IT         | 7500   | 2023-01-10 | Hyderabad |
+
+---
+
+## 🔹 1. COUNT()
+Count total number of employees.
+```sql
+SELECT COUNT(*) AS total_employees
+FROM employee;
 ````
 
-* **Result Example:**
-
-  ```
-  total_employees
-  ----------------
-  150
-  ```
-
 ---
 
-## 2. SUM()
+## 🔹 2. COUNT(DISTINCT)
 
-* **Description:** Adds up the values in a numeric column.
-* **Query:**
-
-  ```sql
-  SELECT SUM(salary) AS total_salary
-  FROM employees;
-  ```
-* **Result Example:**
-
-  ```
-  total_salary
-  -------------
-  900000
-  ```
-
----
-
-## 3. AVG()
-
-* **Description:** Finds the average of numeric values.
-* **Query:**
-
-  ```sql
-  SELECT AVG(salary) AS avg_salary
-  FROM employees;
-  ```
-* **Result Example:**
-
-  ```
-  avg_salary
-  -----------
-  6000
-  ```
-
----
-
-## 4. MIN()
-
-* **Description:** Finds the smallest value in a column.
-* **Query:**
-
-  ```sql
-  SELECT MIN(salary) AS lowest_salary
-  FROM employees;
-  ```
-* **Result Example:**
-
-  ```
-  lowest_salary
-  --------------
-  2500
-  ```
-
----
-
-## 5. MAX()
-
-* **Description:** Finds the largest value in a column.
-* **Query:**
-
-  ```sql
-  SELECT MAX(salary) AS highest_salary
-  FROM employees;
-  ```
-* **Result Example:**
-
-  ```
-  highest_salary
-  ---------------
-  15000
-  ```
-
----
-
-## 6. COUNT(DISTINCT)
-
-* **Description:** Counts unique values.
-* **Query:**
-
-  ```sql
-  SELECT COUNT(DISTINCT department) AS total_departments
-  FROM employees;
-  ```
-* **Result Example:**
-
-  ```
-  total_departments
-  -----------------
-  5
-  ```
-
----
-
-## 7. GROUP\_CONCAT() / STRING\_AGG()
-
-* **Description:** Combines multiple values into one string (DB-specific).
-* **Query (PostgreSQL):**
-
-  ```sql
-  SELECT department, STRING_AGG(name, ', ') AS employees_list
-  FROM employees
-  GROUP BY department;
-  ```
-* **Result Example:**
-
-  ```
-  department   | employees_list
-  -------------+-------------------------
-  HR           | Alice, Bob, Charlie
-  IT           | David, Emma
-  ```
-
----
-
-## 8. VARIANCE()
-
-* **Description:** Measures the spread of values from the average.
-* **Query:**
-
-  ```sql
-  SELECT VAR_SAMP(salary) AS salary_variance
-  FROM employees;
-  ```
-* **Result Example:**
-
-  ```
-  salary_variance
-  ----------------
-  1200000
-  ```
-
----
-
-## 9. STDDEV()
-
-* **Description:** Finds the standard deviation (how spread out values are).
-* **Query:**
-
-  ```sql
-  SELECT STDDEV(salary) AS salary_stddev
-  FROM employees;
-  ```
-* **Result Example:**
-
-  ```
-  salary_stddev
-  --------------
-  1095.44
-  ```
-
----
-
-## 10. MEDIAN() (via window functions)
-
-* **Description:** Returns the middle value in ordered data.
-* **Query (PostgreSQL):**
-
-  ```sql
-  SELECT PERCENTILE_CONT(0.5) 
-         WITHIN GROUP (ORDER BY salary) AS median_salary
-  FROM employees;
-  ```
-* **Result Example:**
-
-  ```
-  median_salary
-  --------------
-  5800
-  ```
-
----
-
-## Using GROUP BY
-
-Aggregations become powerful when grouped.
+Count how many unique departments exist.
 
 ```sql
-SELECT department, AVG(salary) AS avg_salary, COUNT(*) AS emp_count
-FROM employees
+SELECT COUNT(DISTINCT department) AS unique_departments
+FROM employee;
+```
+
+---
+
+## 🔹 3. SUM()
+
+Find the total salary paid to all employees.
+
+```sql
+SELECT SUM(salary) AS total_salary
+FROM employee;
+```
+
+---
+
+## 🔹 4. AVG()
+
+Find the average salary of employees.
+
+```sql
+SELECT AVG(salary) AS average_salary
+FROM employee;
+```
+
+---
+
+## 🔹 5. MIN()
+
+Find the lowest salary in the company.
+
+```sql
+SELECT MIN(salary) AS min_salary
+FROM employee;
+```
+
+---
+
+## 🔹 6. MAX()
+
+Find the highest salary in the company.
+
+```sql
+SELECT MAX(salary) AS max_salary
+FROM employee;
+```
+
+---
+
+## 🔹 7. GROUP BY + AVG()
+
+Find the average salary in each department.
+
+```sql
+SELECT department, AVG(salary) AS avg_salary
+FROM employee
 GROUP BY department;
 ```
 
-**Sample Result:**
+---
 
-```
-department | avg_salary | emp_count
------------+------------+----------
-HR         | 5500       | 10
-IT         | 7000       | 20
+## 🔹 8. GROUP BY + COUNT()
+
+Count employees in each department.
+
+```sql
+SELECT department, COUNT(*) AS emp_count
+FROM employee
+GROUP BY department;
 ```
 
 ---
 
-## ✅ Conclusion
+## 🔹 9. GROUP BY + SUM()
 
-* Aggregations summarize large datasets into meaningful insights.
-* Functions like `COUNT`, `SUM`, `AVG`, `MIN`, and `MAX` are the most common.
-* Advanced functions like `VARIANCE`, `STDDEV`, and `MEDIAN` are useful in statistics.
-* Always pair with `GROUP BY` for grouped reporting.
+Find total salary per department.
+
+```sql
+SELECT department, SUM(salary) AS total_salary
+FROM employee
+GROUP BY department;
+```
+
+---
+
+## 🔹 10. GROUP BY + MAX()
+
+Find the highest salary in each department.
+
+```sql
+SELECT department, MAX(salary) AS highest_salary
+FROM employee
+GROUP BY department;
+```
+
+---
+
+## Conclusion
+
+* Aggregations like `COUNT`, `SUM`, `AVG`, `MIN`, `MAX` help summarize data.
+* Using them with `GROUP BY` allows analysis per department or city.
+* These queries provide insights into salaries, employee distribution, and department-level statistics.
+
 
